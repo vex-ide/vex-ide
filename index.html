@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  
+  <title>Vex IDE</title>
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Vex">
+  <meta name="theme-color" content="#0d1117">
+  <link rel="manifest" href="manifest.json">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+  <header>
+    <h1>Vex</h1>
+    <button id="run-btn">Run</button>
+  </header>
+
+  <div class="editor-wrapper">
+    <div class="gutter" id="gutter"></div>
+    <textarea id="code" spellcheck="false" autocorrect="off" autocapitalize="off" placeholder="Schreibe deinen Vex Code hier..."></textarea>
+  </div>
+</div>
+
+<div class="output-panel" id="output-panel">
+  <div class="output-header">
+    <button id="back-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M5 12l6-6m-6 6l6 6"/>
+      </svg>
+    </button>
+    <span>Terminal</span>
+  </div>
+  <pre id="output"></pre>
+</div>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(err => console.log("SW Fehler:", err));
+    });
+  }
+</script>
+
+<script src="error.js"></script>
+<script src="check.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
