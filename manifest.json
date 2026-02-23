@@ -1,6 +1,6 @@
 {
   "name": "Vex IDE",
-  "short_name": "Vex",
+  "short_name": "Vex IDE",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#0d1117",
